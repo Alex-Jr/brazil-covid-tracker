@@ -25,8 +25,13 @@
       "supportsTablet": true
     },
     "android":{
-      "package": "teste.covid",
-      "versionCode": 1
+      "package": "android.alexmendes.mapacovid",
+      "versionCode": 1,
+      "config": {
+        "googleMaps": {
+          "apiKey": "AIzaSyDptvKeIRIzUkT-k4XH155suK-UNAQcXYg"
+        }
+      }
     },
     "androidStatusBar": {
       "barStyle": "light-content",
