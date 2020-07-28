@@ -78,7 +78,7 @@ const parseStatesInfo = (data) => {
     value.forEach((region) => {
       cases = parseInt(data[region].totalCases);
       sum = sum + cases;
-      statesData.push({ id: region, totalCases: sum });
+      statesData.push({ id: region, totalCases: cases });
     });
     regionData.push({ title: key, quantity: sum, color: Colors.region[key] });
   }
