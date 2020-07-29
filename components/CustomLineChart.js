@@ -9,7 +9,7 @@ const CustomLineChart = (props) => {
     backgroundGradientFromOpacity: 0,
     backgroundGradientTo: props.backgroundColor,
     backgroundGradientToOpacity: 0.5,
-    color: (opacity = 1) => `rgba(26, 255, 146, ${opacity})`,
+    color: (opacity = 1) => `rgba(255, 255, 255, ${opacity})`,
     strokeWidth: 2, 
     barPercentage: 0.5,
     useShadowColorFromDataset: false
@@ -28,7 +28,7 @@ const CustomLineChart = (props) => {
   return (
     <LineChart
       data={data}
-      width={Math.round(Dimensions.get('window').width - 20)}
+      width={Math.round(Dimensions.get('window').width  * 0.95)}
       height={300}
       chartConfig={chartConfig}
       formatYLabel={(label) => {

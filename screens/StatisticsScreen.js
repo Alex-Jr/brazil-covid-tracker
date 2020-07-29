@@ -35,15 +35,15 @@ const HomeScreen = (props) => {
       label.push(`${key.slice(8, 10)}`);
       data.push(parseFloat(value[type]));
     }
-    if(type == "deaths_by_totalCases") {
-      data = data.map((v) => v*100)
+    if (type == "deaths_by_totalCases") {
+      data = data.map((v) => v * 100);
     }
-    if(limit == 30) {
-      data = data.filter((v, i) => i % 3 == 0)
-      label = label.filter((v, i) => i % 3 == 0)
+    if (limit == 30) {
+      data = data.filter((v, i) => i % 3 == 0);
+      label = label.filter((v, i) => i % 3 == 0);
     }
     return (
-      <View style={{ marginLeft: 10 }}>
+      <View style={{ marginLeft: "2.5%" }}>
         <CustomLineChart
           data={data}
           label={label}
@@ -63,73 +63,72 @@ const HomeScreen = (props) => {
     );
   return (
     <View style={styles.screen}>
-      <RNPickerSelect
-        style={{marginTop: 5}}
-        onValueChange={(value) => {
-          setState(value);
-          setReloading(true);
-        }}
-        value={state}
-        placeholder={{ label: "Brasil", value: "BR" }}
-        items={StatesList.map((state) => {
-          return { label: state.name, value: state.uf };
-        })}
-        Icon={() => {
-          return (
-            <MaterialCommunityIcons
-              name={"chevron-down"}
-              size={20}
-              color={"white"}
-              style={{ marginRight: 15, marginTop: 15 }}
-            />
-          );
-        }}
-      />
-      <RNPickerSelect
-        style={{marginTop: 5}}
-        onValueChange={(value) => {
-          setLimit(value);
-          setReloading(true);
-        }}
-        value={limit}
-        placeholder={{ label: "Ultima semana", value: 7 }}
-        items={[{ label: "Ultima mês", value: 30 }]}
-        Icon={() => {
-          return (
-            <MaterialCommunityIcons
-              name={"chevron-down"}
-              size={20}
-              color={"white"}
-              style={{ marginRight: 15, marginTop: 15 }}
-            />
-          );
-        }}
-      />
-      <RNPickerSelect
-        style={{marginTop: 5}}
-        onValueChange={(value) => {
-          setType(value);
-        }}
-        value={type}
-        placeholder={{ label: "Casos Totais", value: "totalCases" }}
-        items={[
-          { label: "N° de óbitos", value: "totalDeaths" },
-          { label: "Casos recuperados", value: "recovered" },
-          { label: "Novos Casos", value: "newCases" },
-          { label: "Casos suspeitos", value: "suspects" },
-          { label: "Letalidade", value: "deaths_by_totalCases" },
-        ]}
-        Icon={() => {
-          return (
-            <MaterialCommunityIcons
-              name={"chevron-down"}
-              size={20}
-              color={"white"}
-              style={{ marginRight: 15, marginTop: 15 }}
-            />
-          );
-        }}
-      />
+      <View style={{marginBottom:"15%", paddingHorizontal: 10, paddingTop: 10}}>
+        <RNPickerSelect
+          onValueChange={(value) => {
+            setState(value);
+            setReloading(true);
+          }}
+          value={state}
+          placeholder={{ label: "Brasil", value: "BR" }}
+          items={StatesList.map((state) => {
+            return { label: state.name, value: state.uf };
+          })}
+          Icon={() => {
+            return (
+              <MaterialCommunityIcons
+                name={"chevron-down"}
+                size={20}
+                color={"white"}
+                style={{ marginRight: 15, marginTop: 15 }}
+              />
+            );
+          }}
+        />
+        <RNPickerSelect
+          onValueChange={(value) => {
+            setLimit(value);
+            setReloading(true);
+          }}
+          value={limit}
+          placeholder={{ label: "Ultima semana", value: 7 }}
+          items={[{ label: "Ultima mês", value: 30 }]}
+          Icon={() => {
+            return (
+              <MaterialCommunityIcons
+                name={"chevron-down"}
+                size={20}
+                color={"white"}
+                style={{ marginRight: 15, marginTop: 15 }}
+              />
+            );
+          }}
+        />
+        <RNPickerSelect
+          onValueChange={(value) => {
+            setType(value);
+          }}
+          value={type}
+          placeholder={{ label: "Casos Totais", value: "totalCases" }}
+          items={[
+            { label: "N° de óbitos", value: "totalDeaths" },
+            { label: "Casos recuperados", value: "recovered" },
+            { label: "Novos Casos", value: "newCases" },
+            { label: "Casos suspeitos", value: "suspects" },
+            { label: "Letalidade", value: "deaths_by_totalCases" },
+          ]}
+          Icon={() => {
+            return (
+              <MaterialCommunityIcons
+                name={"chevron-down"}
+                size={20}
+                color={"white"}
+                style={{ marginRight: 15, marginTop: 15 }}
+              />
+            );
+          }}
+        />
+      </View>
 
       {renderChart()}
     </View>
@@ -148,7 +147,7 @@ const styles = StyleSheet.create({
     paddingTop: StatusBar.currentHeight || 0,
     justifyContent: "flex-start",
     backgroundColor: Colors.background,
-  }
+  },
 });
 
 export default HomeScreen;
