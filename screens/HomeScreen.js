@@ -77,7 +77,7 @@ const HomeScreen = (props) => {
         }
         <FlatList
           contentContainerStyle={styles.newsFeedListContainer}
-          data={newsFeed.slice(0, screenHeight < 500 ? 2 : 3)}
+          data={newsFeed.slice(0, screenHeight > 500 ? 3 : 2)}
           keyExtractor={(item, index) => index.toString()}
           renderItem={({ item }) => (
             <View style={styles.newsFeedItem}>
@@ -116,16 +116,16 @@ const styles = StyleSheet.create({
     alignItems: "center",
   },
   numberGrid: {
-    width: 150,
-    height: 70,
+    width: screenWidth * 0.40,
+    height: screenHeight > 500 ? 70 : 60,
     marginVertical: 10,
     marginHorizontal: 10,
     borderRadius: 10,
     overflow: "hidden",
   },
   pieChart: { 
-    height: 150,
-    maxHeight: "20%"
+    height: 125,
+    maxHeight: "23%"
   },
   newsFeed: {
     marginHorizontal: 30,

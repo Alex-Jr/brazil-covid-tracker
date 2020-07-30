@@ -63,7 +63,7 @@ const HomeScreen = (props) => {
     );
   return (
     <View style={styles.screen}>
-      <View style={{marginBottom:"15%", paddingHorizontal: 10, paddingTop: 10}}>
+      <View style={{paddingHorizontal: 10, paddingTop: 10}}>
         <RNPickerSelect
           onValueChange={(value) => {
             setState(value);
@@ -145,7 +145,7 @@ const styles = StyleSheet.create({
   screen: {
     flex: 1,
     paddingTop: StatusBar.currentHeight || 0,
-    justifyContent: "flex-start",
+    justifyContent: "space-between",
     backgroundColor: Colors.background,
   },
 });

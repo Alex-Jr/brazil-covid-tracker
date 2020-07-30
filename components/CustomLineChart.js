@@ -29,7 +29,7 @@ const CustomLineChart = (props) => {
     <LineChart
       data={data}
       width={Math.round(Dimensions.get('window').width  * 0.95)}
-      height={300}
+      height={Math.round(Dimensions.get('window').height  * 0.45)}
       chartConfig={chartConfig}
       formatYLabel={(label) => {
         if(props.format == "float" ){
