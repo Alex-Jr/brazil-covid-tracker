@@ -65,7 +65,7 @@ const HomeScreen = (props) => {
         />
       </View>
 
-      {generalInfo.data.length > 0  &&
+      {'data' in generalInfo &&
         <View style={styles.pieChart}>
           <CustomPieChart data={generalInfo.data} />
         </View>

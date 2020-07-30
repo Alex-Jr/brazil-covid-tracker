@@ -42,8 +42,10 @@ const HomeScreen = (props) => {
   useEffect(() => {
     if (!isReloading && !isLoading) return;
     statesInfo = CovidService.getStatesInfo().then((response) => {
-      setChartInfo(response.regions);
-      setMapInfo(response.states);
+      if('states' in response && 'regions' in response){
+        setChartInfo(response.regions);
+        setMapInfo(response.states);
+      }
     });
     Promise.all([statesInfo]).then(() => {
       setLoading(false);

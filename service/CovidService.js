@@ -28,7 +28,7 @@ const CovidService = {
       })
       .catch((err) => {
         console.warn(err);
-        return [];
+        return {};
       });
   },
   getRegionalStatistics: async (uf, limit) => {
@@ -43,7 +43,7 @@ const CovidService = {
       })
       .catch((err) => {
         console.warn(err);
-        return [];
+        return {};
       });
   },
 };
@@ -94,5 +94,15 @@ const parseStatesInfo = (data) => {
     states: statesData,
   };
 };
+
+// const parseStatisticsInfo = (data) => {
+//   console.log(data)
+//   if(Array.isArray(data)){
+//     if(data.length > 0){
+//       return data[0]
+//     }
+//   }
+//   return []
+// }
 
 export default CovidService;

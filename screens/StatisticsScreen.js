@@ -19,10 +19,10 @@ const HomeScreen = (props) => {
   useEffect(() => {
     if (!isLoading && !isReloading) return;
     const chart = CovidService.getRegionalStatistics(state, limit);
-    Promise.all([chart]).then((value) => {
+    Promise.all([chart]).then((data) => {
       setLoading(false);
       setReloading(false);
-      setChartdata(value[0]);
+      setChartdata(data[0]);
     });
   }, [isLoading, isReloading]);
 
@@ -35,6 +35,8 @@ const HomeScreen = (props) => {
       label.push(`${key.slice(8, 10)}`);
       data.push(parseFloat(value[type]));
     }
+    if(data.length == 0 || label.length == 0) return
+
     if (type == "deaths_by_totalCases") {
       data = data.map((v) => v * 100);
     }
