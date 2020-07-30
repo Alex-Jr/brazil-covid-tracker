@@ -19,10 +19,10 @@ const NumberGrid = (props) => {
 };
 
 const Title = {
-  confirmed: "Confirmados",
+  active: "Casos Ativos",
   recovered: "Recuperados",
   deaths: "Óbitos",
-  new: "Novos Casos",
+  newCases: "Novos Casos",
 };
 
 const styles = StyleSheet.create({

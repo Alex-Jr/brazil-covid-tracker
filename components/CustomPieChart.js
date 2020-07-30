@@ -9,14 +9,16 @@ const CustomPieChart = (props) => {
     svg: {
       fill: value.color || Colors[value.title],
     },
-    key: `pie-${index}`,
+    key: `${index}`,
   }));
   return (
     <PieChart
       style={{flex: 1}}
       data={data}
       innerRadius={"75%"}
-      sort={(a, b) => a.value - b.value}
+      sort={(a, b) => {
+        return parseInt(b.key) - parseInt(a.key)
+      }}
     />
   );
 };

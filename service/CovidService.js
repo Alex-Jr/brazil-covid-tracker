@@ -50,15 +50,19 @@ const CovidService = {
 
 const parseGeneralInfo = (data) => {
   const updated = Object.keys(data)[0];
+
+  let recovered = parseInt(data[updated].recovered);
+  let totalDeaths = parseInt(data[updated].totalDeaths);
+  let newCases = parseInt(data[updated].newCases);
+  let active = parseInt(data[updated].totalCases) - recovered - totalDeaths
+
   return {
-    updated: `${updated.slice("8,10")}${updated.slice("4,8")}${updated.slice(
-      "0,4"
-    )}`,
+    updated: `${updated.slice(8, 10)}${updated.slice(4, 8)}${updated.slice(0, 4)}`,
     data: [
-      { title: "confirmed", quantity: parseInt(data[updated].totalCases) },
-      { title: "recovered", quantity: parseInt(data[updated].recovered) },
-      { title: "deaths", quantity: parseInt(data[updated].totalDeaths) },
-      { title: "new", quantity: parseInt(data[updated].newCases) },
+      { title: "active", quantity: active },
+      { title: "recovered", quantity: recovered },
+      { title: "deaths", quantity:  totalDeaths },
+      { title: "newCases", quantity: newCases },
     ],
   };
 };

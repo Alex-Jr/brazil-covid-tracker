@@ -7,10 +7,10 @@ const Colors = {
     textDark: "rgb(25,25,25)",
     textLight: "rgb(196, 181, 158)",
 
-    confirmed: "#fb397a",
+    active: "#fb397a",
     recovered: "#5d78ff",
     deaths: "#fab822",
-    new: "#1fbb87",
+    newCases: "#1fbb87",
 
     region:{
         "Norte" : "#fb397a",
