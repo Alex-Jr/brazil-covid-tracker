@@ -4,8 +4,8 @@ Aplicativo feito com React Native para apresentar dados rápidos sobre a evoluç
 ![](https://github.com/Alex-Jr/brazil-covid-tracker/blob/master/screens_preview.png)
 
 ## Download
-  Por limitações do plano gratuito do https://newsapi.org/ o download do app não está disponível oficialmente na PlayStore
-- [APK](https://exp-shell-app-assets.s3.us-west-1.amazonaws.com/android/%40alexmendes/brazil-covid-tracker-6e01580e27b34be0a5b01ca892fc1031-signed.apk)
+  O backend do aplicativo foi desligado, por isso não há download disponível.
+
 ## Tecnologias usadas
 - Expo
 - Firebase (Realtime Database e Cloud Functions)
